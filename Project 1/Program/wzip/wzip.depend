@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1626164123 source:c:\users\lacap\desktop\paul\cloud folders git\operating systems\projects\project 1\program\wzip\main.c
+	<stdio.h>
+	<stdlib.h>
+
