@@ -9,7 +9,9 @@ int main()
     int letterCounter = 0;
     int lastLetterCounter = 0;
 
+    int itExitedDifferent = 1;
     int iteCounter = 0;
+
     //_bool differentLastLetter = false;
 
     FILE * fr;
@@ -20,11 +22,16 @@ int main()
     fo = fopen("Test_Case_04_Answer.txt", "w");
 
 
-    while(fgets(letterLine, 2, fr) != NULL)
+    while(!feof(fr))
     {
+        fgets(letterLine, 2, fr);
         if(currentLetter == letterLine[0])
         {
             letterCounter++;
+
+            lastLetterCounter = letterCounter;
+            lastLetter = currentLetter;
+            itExitedDifferent = 0;
         }
         else if (currentLetter == NULL)
         {
@@ -33,8 +40,9 @@ int main()
         }
         else
         {
+            itExitedDifferent = 1;
          //   printf("%d", letterCounter);
-        //    printf("%c", currentLetter);
+         //   printf("%c", currentLetter);
 
             fwrite(&letterCounter, 4, 1, fo);
             fwrite(&currentLetter, 1, 1, fo);
@@ -45,6 +53,16 @@ int main()
             currentLetter = letterLine[0];
             letterCounter = 1;
         }
+    }
+
+    if(itExitedDifferent == 0)
+    {
+        lastLetterCounter--;
+     //   printf("%d", lastLetterCounter);
+    //    printf("%c", lastLetter);
+
+        fwrite(&lastLetterCounter, 4, 1, fo);
+        fwrite(&lastLetter, 1, 1, fo);
     }
 
     currentLetter = letterLine[0];
