@@ -5,13 +5,19 @@ int main()
 {
     char letterLine[2];
     char currentLetter = NULL;
+    char lastLetter;
     int letterCounter = 0;
+    int lastLetterCounter = 0;
+
+    int iteCounter = 0;
+    //_bool differentLastLetter = false;
 
     FILE * fr;
     FILE * fo;
 
-    fr  = fopen("Test_Case.txt", "r");
-    fo = fopen("Answer.txt", "w");
+
+    fr  = fopen("Test_Case_04.txt", "r");
+    fo = fopen("Test_Case_04_Answer.txt", "w");
 
 
     while(fgets(letterLine, 2, fr) != NULL)
@@ -27,18 +33,22 @@ int main()
         }
         else
         {
-            printf("%d", letterCounter);
-            printf("%c", currentLetter);
+         //   printf("%d", letterCounter);
+        //    printf("%c", currentLetter);
+
             fwrite(&letterCounter, 4, 1, fo);
             fwrite(&currentLetter, 1, 1, fo);
+
+            lastLetter = currentLetter;
+            lastLetterCounter = letterCounter;
+
             currentLetter = letterLine[0];
             letterCounter = 1;
         }
     }
 
-
     currentLetter = letterLine[0];
-
     printf("\nHello world!\n");
+
     return 0;
 }
