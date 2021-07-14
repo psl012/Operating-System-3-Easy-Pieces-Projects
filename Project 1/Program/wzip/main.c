@@ -12,14 +12,12 @@ int main()
     int itExitedDifferent = 1;
     int iteCounter = 0;
 
-    //_bool differentLastLetter = false;
-
     FILE * fr;
     FILE * fo;
 
 
-    fr  = fopen("Test_Case_04.txt", "r");
-    fo = fopen("Test_Case_04_Answer.txt", "w");
+    fr  = fopen("Test_Case_01.txt", "r");
+    fo = fopen("Test_Case_01_Answer.txt", "w");
 
 
     while(!feof(fr))
@@ -41,8 +39,6 @@ int main()
         else
         {
             itExitedDifferent = 1;
-         //   printf("%d", letterCounter);
-         //   printf("%c", currentLetter);
 
             fwrite(&letterCounter, 4, 1, fo);
             fwrite(&currentLetter, 1, 1, fo);
