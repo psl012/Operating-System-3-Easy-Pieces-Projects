@@ -5,11 +5,11 @@ int main()
 {
     // wgrep
     char currentLetter;
-    char * searchTerm = "words";
+    char * searchTerm = "ssd";
 
     FILE * fr;
 
-    fr = fopen("Test_Case_04.txt", "r");
+    fr = fopen("Test_Case_01.txt", "r");
 
 
 
