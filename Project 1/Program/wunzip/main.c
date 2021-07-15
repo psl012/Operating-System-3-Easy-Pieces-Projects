@@ -8,7 +8,7 @@ int main()
 
     FILE * fr;
 
-    fr = fopen("Test_Test.txt", "r");
+    fr = fopen("Test_Case_06.txt", "r");
 
     while(1)
     {
@@ -20,9 +20,10 @@ int main()
             break;
         }
 
-        printf("%d", letterCount);
-        printf("%c", letter);
-
+        for(int i = 0; i < letterCount; i++)
+        {
+            printf("%c", letter);
+        }
     }
     fclose(fr);
 
