@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1626340689 source:c:\users\paul\documents\open source society for computer science (ossu)\operating system 3 easy pieces\project 1\program\wcat\main.c
+	<stdio.h>
+	<stdlib.h>
+

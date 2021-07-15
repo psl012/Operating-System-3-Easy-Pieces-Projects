@@ -1,32 +1,42 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
+int main(int argc, char *argv[])
 {
     FILE * fp;
     char str[100];
 
-
-    fp = fopen("Test_Case_01.txt", "r");
-
-    if(fp == NULL)
+    if(argc <= 1)
     {
-        printf("cannot open file \n");
-        return 1;
+        return 0;
     }
 
-    for(int i = 0; i < 1000; i++)
+    else
     {
-        if(fgets(str, 100, fp) != NULL)
+        for(int i = 1; i < argc; i++)
         {
-            printf("%s", str);
-        }
-        else
-        {
-            break;
+            fp = fopen(argv[i], "r");
+
+            if(fp == NULL)
+            {
+                printf("wcat: cannot open file \n");
+                return 1;
+            }
+
+            for(int i = 0; i < 1000; i++)
+            {
+                if(fgets(str, 100, fp) != NULL)
+                {
+                    printf("%s", str);
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            fclose(fp);
         }
     }
-
-    fclose(fp);
     return 0;
 }
