@@ -4,20 +4,20 @@
 int main()
 {
     char letterLine[2];
-    char currentLetter = NULL;
+    char currentLetter;
     char lastLetter;
     int letterCounter = 0;
     int lastLetterCounter = 0;
 
     int itExitedDifferent = 1;
-    int iteCounter = 0;
+    int firstRun = 1;
 
     FILE * fr;
     FILE * fo;
 
 
-    fr  = fopen("Test_Case_01.txt", "r");
-    fo = fopen("Test_Case_01_Answer.txt", "w");
+    fr  = fopen("Test_Case_06.txt", "r");
+    fo = fopen("Test_Case_06_Answer.txt", "w");
 
 
     while(!feof(fr))
@@ -31,8 +31,9 @@ int main()
             lastLetter = currentLetter;
             itExitedDifferent = 0;
         }
-        else if (currentLetter == NULL)
+        else if (firstRun == 1)
         {
+            firstRun = 0;
             currentLetter = letterLine[0];
             letterCounter++;
         }
@@ -54,8 +55,6 @@ int main()
     if(itExitedDifferent == 0)
     {
         lastLetterCounter--;
-     //   printf("%d", lastLetterCounter);
-    //    printf("%c", lastLetter);
 
         fwrite(&lastLetterCounter, 4, 1, fo);
         fwrite(&lastLetter, 1, 1, fo);
@@ -63,6 +62,9 @@ int main()
 
     currentLetter = letterLine[0];
     printf("\nHello world!\n");
+
+    fclose(fr);
+    fclose(fo);
 
     return 0;
 }
